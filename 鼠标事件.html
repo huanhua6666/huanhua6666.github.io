@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css"> 
+		      *{
+				  margin: 0;
+				  padding: 0;
+			  }
+			#d1{
+/* 				width: 800px;
+				height: 800px; */
+				width: 80vw;
+				height: 80vh;
+				background: skyblue;
+				
+				overflow: hidden;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			
+		</div>
+		<script type="text/javascript">
+		    isDraw=false;
+			var d1=document.querySelector("#d1")
+			//鼠标移出
+			d1.onmouseover=function(){
+				d1.style.background="pink"
+			}
+			//鼠标移入
+			d1.onmouseleave=function(){
+				d1.style.background="skyblue"
+			}
+			//鼠标在元素上移动事件
+			d1.onmousemove=function(e){
+				if(isDraw){
+					var circleDiv=document.createElement("div")
+					circleDiv.style.width="10px"
+					circleDiv.style.height="10px"
+					//半径
+					circleDiv.style.borderRadius="5px"
+					circleDiv.style.backgroundColor="orangered";
+					var x=e.pageX;
+					var y=e.pageY;
+					circleDiv.style.position="absolute";
+					circleDiv.style.left=(x-5)+"px"
+					circleDiv.style.top=(y-5)+"px"
+					d1.appendChild(circleDiv)
+				}
+			}
+			//单次点击
+			d1.onclick=function(){
+				isDraw=true;
+			}
+			//两次点击
+			d1.ondblclick=function(){
+				isDraw=false;
+			}
+		</script>
+	</body>
+</html>
